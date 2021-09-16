@@ -1,5 +1,5 @@
 # работа со временем
-
+"""
 from datetime import datetime, date, timedelta
 import locale
  
@@ -24,3 +24,24 @@ with open('referat2.txt', 'w', encoding='utf-8') as referat:
 
 len_string = len(string)
 count_string = len(string.split())
+"""
+# табличный" формат csv
+
+import csv
+
+list_dict = [ 
+    {'name': 'Маша', 'age': 25, 'job': 'Scientist'}, 
+    {'name': 'Вася', 'age': 8, 'job': 'Programmer'}, 
+    {'name': 'Эдуард', 'age': 48, 'job': 'Big boss'}
+    ]
+fields = ['name','age','job']
+with open('export.csv', 'w', encoding='utf-8') as f:
+    writer = csv.DictWriter(f,fields,delimiter=';')
+    writer.writeheader()
+    for i in list_dict:
+        writer.writerow(i)
+
+
+    
+    
+ 
